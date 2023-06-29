@@ -8,7 +8,6 @@
 	<name>Apache Commons Imaging test</name>
 	<description>Test gif apache commons imaging issue</description>
 	<build>
-		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -24,7 +23,6 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<addClasspath>true</addClasspath>
 							<mainClass>Test</mainClass>
 						</manifest>
 					</archive>
@@ -39,7 +37,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-imaging</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.0-alpha3</version>
 		</dependency>
 	</dependencies>
 </project>

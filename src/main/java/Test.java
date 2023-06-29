@@ -5,13 +5,15 @@ import java.util.List;
 import org.apache.commons.imaging.ImageFormat;
 import org.apache.commons.imaging.ImageFormats;
 import org.apache.commons.imaging.ImageParser;
+import org.apache.commons.imaging.ImageReadException;
 import org.apache.commons.imaging.Imaging;
-import org.apache.commons.imaging.bytesource.ByteSource;
+import org.apache.commons.imaging.common.bytesource.ByteSource;
 import org.apache.commons.imaging.common.ImageMetadata;
 import org.apache.commons.imaging.common.ImageMetadata.ImageMetadataItem;
+import org.apache.commons.imaging.common.bytesource.ByteSourceFile;
 
 public class Test {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws ImageReadException, IOException {
         if (args.length < 1) {
             System.out.println("Usage: java Test <image file path>");
             System.exit(1);
@@ -22,7 +24,7 @@ public class Test {
             System.out.println("File not found: " + filePath);
             System.exit(1);
         }
-        ByteSource bs = ByteSource.file(imgFile);
+        ByteSourceFile bs = new ByteSourceFile(imgFile);
         ImageParser imageParser = getImageParser(bs);
         ImageMetadata metadata = imageParser.getMetadata(bs);
         for ( ImageMetadataItem meta : metadata.getItems() ) {
@@ -30,7 +32,7 @@ public class Test {
         }
     }
 
-    private static ImageParser getImageParser(ByteSource byteSrc) throws IOException {
+    private static ImageParser getImageParser(ByteSource byteSrc) throws ImageReadException, IOException {
         final ImageFormat format = Imaging.guessFormat(byteSrc);
         if (!format.equals(ImageFormats.UNKNOWN)) {
 
