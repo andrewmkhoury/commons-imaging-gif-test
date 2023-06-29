@@ -1,5 +1,6 @@
 # commons-imaging-gif-test
-
+## Links
+* See https://issues.apache.org/jira/browse/IMAGING-355
 ## Instructions
 Run the jar with the image path as parameter:
 ```bash
