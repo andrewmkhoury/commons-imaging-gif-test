@@ -36,7 +36,7 @@ public class Test {
         final ImageFormat format = Imaging.guessFormat(byteSrc);
         if (!format.equals(ImageFormats.UNKNOWN)) {
 
-            final List<ImageParser<?>> imageParsers = ImageParser.getAllImageParsers();
+            ImageParser [] imageParsers = ImageParser.getAllImageParsers();
 
             for (final ImageParser imageParser : imageParsers) {
                 if (imageParser.canAcceptType(format)) {
